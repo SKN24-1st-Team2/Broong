@@ -40,7 +40,7 @@ for xl in sorted_xls:
     if "2015년" in xl.text:
         break
 
-    if ("자동차 등록자료 통계" in xl.text) and (xl.text not in dwnld_files):
+    if ("자동차 등록" in xl.text) and (xl.text not in dwnld_files):
         print(cnt, ":", xl.text)
         dwnld_files.append(xl.text)
         driver.execute_script("arguments[0].click()", xl)
