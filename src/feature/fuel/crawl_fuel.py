@@ -11,9 +11,9 @@ def get_raw_fuel_data():
     driver = webdriver.Chrome(service=service, options=options)
 
     data = {
-        'Diesel': [],
+        '디젤': [],
         'LPG': [],
-        'EV': []
+        '전기': []
     }
 
     try:
@@ -21,7 +21,7 @@ def get_raw_fuel_data():
         driver.get('https://www.opinet.co.kr/user/dopospdrg/dopOsPdrgAreaView.do')
         time.sleep(1)
         rows = driver.find_elements(By.CSS_SELECTOR, 'tbody#numbox>tr')
-        data['Diesel'] = [float(r.find_elements(By.CSS_SELECTOR, 'td')[3].text.replace(',', '')) for r in rows]
+        data['디젤'] = [float(r.find_elements(By.CSS_SELECTOR, 'td')[3].text.replace(',', '')) for r in rows]
 
         # 2. LPG 가격 수집
         driver.get('https://www.opinet.co.kr/user/dopcsavsel/dopCsAreaselSelect.do')
@@ -38,7 +38,7 @@ def get_raw_fuel_data():
         for r in rows:
             cols = r.find_elements(By.CSS_SELECTOR, 'td')
             if cols[1].text == '급속':
-                data['EV'].append(float(cols[2].text))
+                data['전기'].append(float(cols[2].text))
 
     finally:
         driver.quit()

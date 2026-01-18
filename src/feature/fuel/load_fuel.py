@@ -1,6 +1,6 @@
 from src.database.db_manager import DBManager
-from src.fuel.crawl_fuel import get_raw_fuel_data
-from src.fuel.transform_fuel import transform_fuel_data
+from src.feature.fuel.crawl_fuel import get_raw_fuel_data
+from src.feature.fuel.transform_fuel import transform_fuel_data
 
 def load_fuel_info():
     """연료 데이터 ETL 프로세스 실행"""

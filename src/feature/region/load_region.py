@@ -1,6 +1,6 @@
 from src.database.db_manager import DBManager
-from src.region.crawl_region import get_raw_region_data
-from src.region.transform_region import transform_region_data
+from src.feature.region.crawl_region import get_raw_region_data
+from src.feature.region.transform_region import transform_region_data
 
 def load_region_info():
     """지역별 충전소 데이터 ETL 프로세스 실행"""
