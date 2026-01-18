@@ -50,5 +50,3 @@ for xl in sorted_xls:
 
 time.sleep(2)
 print("종료")
-
-
